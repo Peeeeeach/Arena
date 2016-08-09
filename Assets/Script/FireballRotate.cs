@@ -11,7 +11,7 @@ public class FireballRotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         speed = GetComponent<Rigidbody2D>().velocity;
-        Debug.Log(Mathf.Atan2(speed.y, speed.x));
+//        Debug.Log(Mathf.Atan2(speed.y, speed.x));
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(speed.y,speed.x)*360/2/Mathf.PI);
 /*        if (Mathf.Abs(Vector3.Angle(speed, Vector3.left)) < 45) transform.rotation = Quaternion.Euler(0,0,180);
         if (Mathf.Abs(Vector3.Angle(speed, Vector3.right)) < 45) transform.rotation = Quaternion.Euler(0,0,0); 

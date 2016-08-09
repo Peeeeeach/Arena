@@ -2,11 +2,17 @@
 using System.Collections;
 
 public class MonsterHit : MonoBehaviour {
+	[SerializeField] private GameObject BurnPrefab;
+	//private PlayerMove player;
+	private GameObject Burn;
 	private Monster monster;
 	private Rigidbody2D rigid;
 	private GameManager manager;
 
+	private float BurnTime = 1.0f;
+
 	void Start () {
+		//player = GameObject.FindObjectOfType <PlayerMove>();
 		rigid = this.GetComponent<Rigidbody2D> ();
 		monster = GameObject.FindObjectOfType<Monster> ();
 		manager = GameObject.FindObjectOfType<GameManager> ();
@@ -42,6 +48,8 @@ public class MonsterHit : MonoBehaviour {
 		if (hitInfo.gameObject.tag.Equals ("Bullet")) {
 			manager.ScorePlus ();
 			monster.EliminateMonster (this.gameObject);
+			Burn = (GameObject)Instantiate (BurnPrefab, this.transform.position, Quaternion.identity);
+			Destroy (Burn, BurnTime);
 		}
 	}
 }
