@@ -4,7 +4,7 @@ using System.Collections;
 public class MonsterHit : MonoBehaviour {
 	[SerializeField] private GameObject BurnPrefab;
 	//private PlayerMove player;
-	private GameObject Burn;
+	public GameObject Burn;
 	private Monster monster;
 	private Rigidbody2D rigid;
 	private GameManager manager;

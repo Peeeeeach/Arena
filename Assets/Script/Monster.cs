@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour {
 
 	void Start () {
 		windowHeight = Camera.main.ViewportToWorldPoint (Vector3.up).y * 2;
-		Radius = windowHeight / 2.0f * 0.9f;
+		Radius = windowHeight / 2.0f * 0.6f;
 		timer = 0;
 		usedGenerateTime = initialGenerateTime;
 	}
