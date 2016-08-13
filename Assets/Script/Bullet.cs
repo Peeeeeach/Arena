@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 	[SerializeField]private GameObject BulletPrefab;
 	[SerializeField]private PlayerMove player;
 	[SerializeField]private float SpaceTime;
-	public GameObject FireAudio;
+	public AudioSource FireAudio;
 	private List<GameObject> BulletList = new List<GameObject> ();
 	private GameManager manager;
 //	private List<int> hitTimes = new List<int> ();
@@ -23,9 +23,8 @@ public class Bullet : MonoBehaviour {
 //		Debug.Log (Input.mousePosition);
 //		if (Input.GetKeyDown (KeyCode.Space) == true)
 		if (Input.GetMouseButtonDown (0) == true && manager.state == GameManager.GameState.Playing) {
-			Debug.Log (FireAudio.GetComponent<AudioSource> ().volume);
-			FireAudio.GetComponent<AudioSource> ().Play ();
-			Debug.Log (FireAudio.GetComponent<AudioSource> ().enabled);
+			//source.PlayOneShot(FireAudio);
+			FireAudio.Play();
 			StartCoroutine (GenerateBullet ());
 		}
 	}
