@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
 	public AudioSource FireAudio;
 	private List<GameObject> BulletList = new List<GameObject> ();
 	private GameManager manager;
+    public Check myCheck;
 //	private List<int> hitTimes = new List<int> ();
 
 	private Rigidbody2D rigid;
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour {
 	void Update () {
 //		Debug.Log (Input.mousePosition);
 //		if (Input.GetKeyDown (KeyCode.Space) == true)
-		if (Input.GetMouseButtonDown (0) == true && manager.state == GameManager.GameState.Playing) {
+		if (Input.GetMouseButtonDown (0) == true && manager.state == GameManager.GameState.Playing && myCheck.On) {
 			//source.PlayOneShot(FireAudio);
 			FireAudio.Play();
 			StartCoroutine (GenerateBullet ());
